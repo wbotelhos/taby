@@ -42,7 +42,7 @@ The jQuery Taby is licensed under [The MIT License](http://www.opensource.org/li
 
 	$('#area').taby('goTo', 10);          // Goes to position 10 of the text.
 
-	$('#area').taby('select', 1, 10);     // Select the texto from postion 1 to 10.
+	$('#area').taby('select', 1, 10);     // Select the text from position 1 to 10.
 
 	$('#area').taby('set', { space: 2 }); // Changes the dynamic properties specified.
 
