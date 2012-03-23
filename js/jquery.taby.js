@@ -29,10 +29,10 @@
 ;(function($) {
 
 	var methods = {
-		init: function(options) {
+		init: function(settings) {
 			return this.each(function() {
 
-				var opt		= $.extend({}, $.fn.taby.defaults, options),
+				var opt		= $.extend({}, $.fn.taby.defaults, settings),
 					$this	= $(this);
 
 				opt['tab'] = '';
@@ -41,7 +41,7 @@
 					opt.tab += ' ';
 				}
 
-				$this.data('options', opt);
+				$this.data('settings', opt);
 
 				if ($this.data('taby')) {
 					return;
@@ -76,7 +76,7 @@
 				});
 			});
 		}, backspace: function() {
-			var opt		= $(this).data('options'),
+			var opt		= $(this).data('settings'),
 				start	= this.selectionStart;
 
 			if (opt.backspace && this.value.slice(start - opt.tab.length, start) == opt.tab) {
@@ -88,7 +88,7 @@
 				this.selectionEnd = start - opt.tab.length;
 			}
 		}, deleter: function() {
-			var opt		= $(this).data('options'),
+			var opt		= $(this).data('settings'),
 				start	= this.selectionStart;
 				end		= this.selectionEnd;
 
@@ -101,7 +101,7 @@
 				this.selectionEnd = end;
     		}
 		}, left: function() {
-			var opt		= $(this).data('options'),
+			var opt		= $(this).data('settings'),
 				start	= this.selectionStart,
 				end		= this.selectionEnd;
 
@@ -123,7 +123,7 @@
 				this.selectionEnd = end - toEndTake;
 			}
 		}, right: function() {
-			var opt		= $(this).data('options'),
+			var opt		= $(this).data('settings'),
 				start	= this.selectionStart,
 				end		= this.selectionEnd;
 
@@ -149,17 +149,16 @@
 				this.selectionStart = start;
 				this.selectionEnd = (end === undefined) ? this.value.length : end;
 			});
-		}, set: function(options) {
+		}, set: function(settings) {
 			return this.each(function() {
-				var $this	= $(this),
-					opt		= $.extend({}, $this.data('options'), options);
+				var $this = $(this);
 
-				$(this).taby(opt);
+				$this.taby($.extend({}, $this.data('settings'), settings));
 			});
 		}, shiftTab: function() {
 			this.evt.preventDefault();
 
-			var opt					= $(this).data('options'),
+			var opt					= $(this).data('settings'),
 				start				= this.selectionStart,
 				end					= this.selectionEnd;
 				preselection		= this.value.slice(0, start),
@@ -245,7 +244,7 @@
 		}, tab: function() {
 			this.evt.preventDefault();
 
-			var opt					= $(this).data('options'),
+			var opt					= $(this).data('settings'),
 				start				= this.selectionStart,
 				end					= this.selectionEnd,
 				preselection		= this.value.slice(0, start),
@@ -318,7 +317,7 @@
 			return methods.init.apply(this, arguments);
 		} else {
 			$.error('Method ' + method + ' does not exist!');
-		} 
+		}
 	};
 
 	$.fn.taby.defaults = {
