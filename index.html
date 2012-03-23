@@ -206,12 +206,12 @@
 				});
 
 				$('#set-action').click(function() {
-					var opt		= { },
-					backspace	= $('#backspace').val(),
-					deleter		= $('#deleter').val(),
-					left		= $('#left').val(),
-					right		= $('#right').val(),
-					space		= $('#space').val();
+					var opt			= {},
+						backspace	= $('#backspace').val(),
+						deleter		= $('#deleter').val(),
+						left		= $('#left').val(),
+						right		= $('#right').val(),
+						space		= $('#space').val();
 
 					if (backspace != '') {
 						opt['backspace'] = backspace;
@@ -235,6 +235,7 @@
 
 					$('#function').taby('set', opt);
 				});
+
 			});
 		</script>
 	</body>
