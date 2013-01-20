@@ -1,0 +1,11 @@
+.demo label { color: #444; font-size: 1.7em; letter-spacing: .7px; margin-right: 5px; padding-left: 6px; padding-top: 8px }
+
+.demo input { background-color: #FBFBFB; border: 1px solid #999; border-radius: 2px; color: #111; font-family: menlo, monospace, serif; font-size: 1.4em; height: 23px; margin-bottom: 5px; letter-spacing: .3px; padding: 3px; width: 50px }
+.demo input:focus { border: 1px solid #95BDD4 }
+.demo input:hover { border: 1px solid #BDBDBD }
+
+.demo a { font-size: 1.5em; margin-left: 5px; letter-spacing: .7px }
+
+.demo textarea { background-color: #FBFBFB; border: 1px solid #999; border-radius: 2px; color: #111; font-family: menlo, monospace, serif; font-size: 1.4em; min-height: 200px; letter-spacing: .3px; padding: 3px; width: 500px }
+.demo textarea:focus { border: 1px solid #95BDD4 }
+.demo textarea:hover { border: 1px solid #BDBDBD }

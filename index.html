@@ -1,242 +1,287 @@
 <!DOCTYPE html>
 
-<html>
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<meta http-equiv="Pragma" content="no-cache">
-		<meta http-equiv="Expires" content="-1">
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+  <meta content="width=device-width; initial-scale=1; maximum-scale=1" name="viewport">
 
-		<title>jQuery Taby - A Textarea Tabulator</title>
+  <title>JQuery Taby</title>
 
-		<script type="text/javascript" src="js/jquery.min.js"></script>
-		<script type="text/javascript" src="js/jquery.taby.min.js"></script>
+  <meta content="Washington Botelho" name="author">
+  <meta content="jQuery Taby - A Textarea Tabulator" name="description">
+  <meta content="jquery,plugin,tab,tabulation,tabulator,space,indent,editor,selection,block" name="keywords">
 
-		<style type="text/css">
-			/* This CSS does not belong to the plugin. */
-			body { background: url('img/background.gif'); font: normal 11px verdana; }
-			
-			a { color: #2C8CBD; text-decoration: none; }
-			a:hover { color: #48A5D4; }
-			
-			a#coffee {
-				background: url('img/coffee.png') 6px 2px no-repeat #DC5; border: 1px solid #D9C640; color: #FFF; display: block; float: right; font-size: 10px; font-weight: bold; letter-spacing: .9px; margin-right: 9px; padding: 4px 5px 4px 26px; text-decoration: none;
-				-khtml-border-radius: 4px; -moz-border-radius: 4px; -opera-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px;
-			}
-			a#coffee:hover { text-decoration: underline; }
-			
-			span.comment { color: #999; font: 12px monospace; letter-spacing: .1px; margin-bottom: 7px; margin-top: 5px; }
-			
-			div#content { background-color: #FFF; border: 1px solid #DEDEDE; box-shadow: 0 1px 3px rgba(100, 100, 100, 0.4); margin: 0 auto; padding: 15px; width: 1100px; min-height: 510px; }
-			
-			div.description { color: #555; letter-spacing: .1px; margin-bottom: 15px; margin-top: 10px; text-align: left; }
-			
-			div.description-code { color: #555; letter-spacing: .1px; margin-bottom: 10px; text-indent: 7px; }
+	<link type="text/css" rel="stylesheet" href="demo/css/application.css">
 
-			div#menu-feature { color: #AAA; float: left; margin-bottom: 20px; }
-			div#menu-feature a { float: left; width: 120px }
-			div#menu-feature a.disabled { color: #999; cursor: default; }
-			div#menu-feature a.selected { color: #2C8CBD; cursor: default; font-weight: bold; }
+  <script type="text/javascript" src="demo/js/jquery.min.js"></script>
+	<script type="text/javascript" src="lib/jquery.taby.min.js"></script>
 
-			div#footer { clear: both; height: 25px; margin-top: 5px; width: 100%; }
-			div#footer div#copy { margin: 0 auto; text-align: center; width: 1100px; }
-			
-			div#header { margin: 0 auto; padding-left: 20px; width: 1130px; }
-			
-			div#menu { color: #AB9927; font: bold 14px 'Lucida Grande', 'Helvetica', 'Times New Roman', serif; text-shadow: 1px 1px 1px #FFF; text-transform: uppercase; }
-			div#menu a { color: #EA9C00; font: bold 10px verdana; letter-spacing: .9px; text-decoration: none; }
-			div#menu a:hover { color: #DC5; font-weight: bold; letter-spacing: .9px; text-decoration: underline; }
-			
-			div.session { clear: both;  font: bold 13px verdana; border-bottom: 1px solid #EFEFEF; color: #444; letter-spacing: .7px; margin-bottom: 18px; margin-top: 24px; text-align: left; }
-			div.session-first { clear: both; font: bold 13px verdana; border-bottom: 1px solid #EFEFEF; color: #444; letter-spacing: .7px; margin-bottom: 18px; text-align: left; }
-			div.session-mini { font: bold 10px verdana; color: #444; letter-spacing: .7px; margin-top: 17px; }
-			
-			div.source { background: #F8F8FF; border: 1px solid #EFEFEF; border-left: 3px solid #CCC; clear: both; color: #444; font: 12px monospace; border-radius: 2px; letter-spacing: .1px; margin-bottom: 7px; margin-top: 15px; padding: 7px; width: 1081px; -khtml-border-radius: 2px; -moz-border-radius: 2px; -opera-border-radius: 2px; -webkit-border-radius: 2px; }
-			div.source div.comment { color: #777; font: 9px verdana; letter-spacing: 0.4px; margin-bottom: 9px; text-align: left; }
-			
-			div#title { font: bold 17px verdana; color: #269; letter-spacing: .7px; margin-bottom: 10px; text-align: left; }
-			div#title span { color: #777; font: 10px verdana; }
-			
-			span#version { color: #777; font: 10px verdana; }
-		</style>
-
-		<script type="text/javascript">
-			// This code does NOT belong the plugin. See the example code at the bottom of this page.
-			var _gaq = _gaq || [];
-			_gaq.push(['_setAccount', 'UA-194992347-13']);
-			_gaq.push(['_trackPageview']);
-			
-			(function() {
-				var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-			})();
-		</script>
-	</head>
-	<body>
-		<div id="header">
-			<div id="title">
-				<a href="http://wbotelhos.com/taby">jQuery Taby - A Textarea Tabulator</a>
-				<span>(current version: 0.1.0)</span>
+	<link href="/favicon.ico" rel="shortcut icon" type="image/x-icon">
+</head>
+<body>
+	<div id="wrapper">
+		<header role="banner">
+			<div id="logo">
+				<h1><a href="http://wbotelhos.com/taby" title="jQuery Taby">jQuery Taby</a></h1>
+				<p>A Textarea Tabulator</p>
 			</div>
 
-			<div id="menu">
-				<a href="http://github.com/downloads/wbotelhos/taby/jquery.taby-0.1.0.zip" target="_blank">Download</a> |
-				<a href="http://github.com/wbotelhos/taby" target="_blank">Github</a> |
-				<a href="http://wbotelhos.com/taby/changelog.markdown" target="_blank">Change Log</a> |
-				<a href="http://wbotelhos.com/taby/README.markdown" target="_blank">Readme</a> |
-				<a href="http://www.wbotelhos.com/2012/01/19/jquery-taby-a-textarea-tabulator" target="_blank">Article</a> |
-				<a href="http://wbotelhos.com/taby/LICENSE.txt" target="_blank">License</a> |
-				<a href="http://www.wbotelhos.com/taby/who.html" target="_blank">Who is using</a> |
-				<a href="http://www.wbotelhos.com/2012/01/19/jquery-taby-a-textarea-tabulator#comments" target="_blank" style="color: #2C8CBD;">Doubt</a> |
-				<a href="http://www.wbotelhos.com/labs" target="_blank" style="color: #000;">yLab</a>
-			</div>
+			<nav role="navigation">
+			  <ul>
+			    <li><a href="http://github.com/wbotelhos/taby/archive/1.0.0.zip" title="Download" class="download"><i class="icon-download icon-large"></i>v1.0.0</a></li>
+          <li><a href="http://github.com/wbotelhos/taby" title="Github" target="_blank"><i class="icon-github icon-large"></i>Github</a></li>
+          <li><a href="http://wbotelhos.com/labs" title="yLab" target="_blank"><i class="icon-beaker icon-large"></i>yLab</a></li>
+          <li><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&amp;business=X8HEP2878NDEG&amp;item_name=jQuery%20Taby" title="Donate" target="_blank"><i class="icon-heart-empty icon-large"></i>Donate</a></li>
+			  </ul>
+			</nav>
+		</header>
 
-			<a id="coffee" href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&amp;business=X8HEP2878NDEG&amp;item_name=jQuery%20Taby" target="_blank">buy me a coffee</a>
+    <div id="container">
+      <section role="main">
+        <article>
+          <h2 id="default">
+            <a href="#default">Default:</a>
+          </h2>
 
-			<div class="description">jQuery <strong>Taby</strong> is a plugin to enable tabulation in textarea fields.</div>
-		</div>
+          <p>
+            You can to use the following actions:<br/>
+            - tab;<br/>
+            - shift + tab;<br/>
+            - delete;<br/>
+            - backspace;<br/>
+            - arrow left;<br/>
+            - arrow right.
+          </p>
 
-		<div id="content">
-			<div id="default-demo" class="session-first">With default options:</div>
+          <div class="demo">
+            <textarea id="default-demo"></textarea>
+          </div>
 
-			<textarea id="area" cols="70" rows="10"></textarea>
+<div class="highlight">
+<pre>
+<span class="nx">$</span><span class="p">(</span><span class="s1">'textarea'</span><span class="p">).</span><span class="nx">taby</span><span class="p">();</span>
+</pre>
+</div>
 
-			<div class="source">
-				$('#area').taby();<br/><br/>
+<div class="highlight">
+<pre>
+<span class="nt">&lt;textarea&gt;&lt;/textarea&gt;</span>
+</pre>
+</div>
 
-				&lt;textarea id="area"&gt;&lt;/textarea&gt;
-			</div>
+          <h2 id="functions">
+            <a href="#functions">Functions:</a>
+          </h2>
 
-			<span class="comment">
-				- You can to use the following actions:<br/>
-				- tab;<br/>
-				- shift + tab;<br/>
-				- delete;<br/>
-				- backspace;<br/>
-				- arrow left;<br/>
-				- arrow right.
-			</span>
+          <div id="goTo" class="function">
+<div class="highlight">
+<pre>
+<span class="nx">$</span><span class="p">(</span><span class="s1">'textarea'</span><span class="p">).</span><span class="nx">taby</span><span class="p">(</span><span class="s1">'goTo'</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span>
+</pre>
+</div>
 
-			<div id="function-demo" class="session">Public functions:</div>
+            <p>Goes to position 10 of the text.</p>
+          </div>
 
-			<textarea id="function" cols="70" rows="10"></textarea>
+          <div id="select" class="function">
+<div class="highlight">
+<pre>
+<span class="nx">$</span><span class="p">(</span><span class="s1">'textarea'</span><span class="p">).</span><span class="nx">taby</span><span class="p">(</span><span class="s1">'select'</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span>
+</pre>
+</div>
 
-			<div style="color: #CCC; margin-top: 15px;">
-				from: <input id="from" type="text" value="2" style="border: 1px solid #CCC; width: 25px;" />
-				to: <input id="to" type="text" value="27" style="border: 1px solid #CCC; width: 25px;" />
-				<a id="select-action" href="javascript:void(0);" title="select" style="margin-left: 5px;">select</a>
-			</div>
+            <p>Select the text from postion 1 to 10. If you don't pass the second parameter this will be the text length;</p>
+          </div>
 
-			<div style="color: #CCC; margin-top: 15px;">
-				to: <input id="goto" type="text" value="23" style="border: 1px solid #CCC; width: 25px;" />
-				<a id="goto-action" href="javascript:void(0);" title="goTo" style="margin-left: 5px;">goTo</a>
-			</div>
+          <div id="set" class="function">
+<div class="highlight">
+<pre>
+<span class="nx">$</span><span class="p">(</span><span class="s1">'textarea'</span><span class="p">).</span><span class="nx">taby</span><span class="p">(</span><span class="s1">'set'</span><span class="p">,</span> <span class="p">{</span> <span class="nx">space</span><span class="o">:</span> <span class="mi">2</span> <span class="p">});</span>
+</pre>
+</div>
 
-			<div style="color: #CCC; margin-top: 15px;">
-				backspace: <input id="backspace" type="text" value="false" style="border: 1px solid #CCC; margin-right: 5px; width: 35px;" />
-				deleter: <input id="deleter" type="text" value="false" style="border: 1px solid #CCC; margin-right: 5px; width: 35px;" />
-				left: <input id="left" type="text" value="false" style="border: 1px solid #CCC; margin-right: 5px; width: 35px;" />
-				right: <input id="right" type="text" value="false" style="border: 1px solid #CCC; margin-right: 5px; width: 35px;" />
-				space: <input id="space" type="text" value="2" style="border: 1px solid #CCC; width: 25px;" />
-				<a id="set-action" href="javascript:void(0);" title="set" style="margin-left: 5px;">set</a>
-			</div>
+            <p>Changes the dynamic properties specified.</p>
+          </div>
 
-			<div id="global-demo" class="session">Changing the settings globally:</div>
+          <div class="demo">
+            <textarea id="function-demo"></textarea>
+          </div>
 
-			<div class="source">
-				$.fn.taby.defaults.space = 2;<br/>
-				$.fn.taby.defaults.backspace = false;
-			</div>
+          <div class="demo">
+            <label for="from-demo">from:</label>
+            <input id="from-demo" type="text" value="27" />
 
-			<span class="comment">
-				- You can change any option mention the scope <b>$.fn.taby.defaults.</b> + <i>option_name</i>;<br/>
-				- This setup must be called before you bind the Taby, of course.
-			</span>
+            <label for="to-demo">to:</label>
+            <input id="to-demo" type="text" value="37" />
 
-			<div class="session">Default options:</div>
+            <a id="select-action" href="javascript:void(0);" title="select">select</a>
+          </div>
 
-			<div class="source">
-				backspace&#160;: true
-				<div class="comment">Enables removal (end to begin) of a whole tabulation.</div>
+          <div class="demo">
+            <label for="goTo-demo">to:</label>
+            <input id="goTo-demo" type="text" value="127" />
 
-				deleter&#160;&#160;&#160;: true
-				<div class="comment">Enables removal (begin to end) of a whole tabulation.</div>
+            <a id="goTo-action" href="javascript:void(0);" title="goTo">goTo</a>
+          </div>
 
-				left&#160;&#160;&#160;&#160;&#160;&#160;: true
-				<div class="comment">Enables jump tabulation using left arrow.</div>
+          <div class="demo">
+            <label for="backspace-demo">backspace:</label>
+            <input id="backspace-demo" type="text" value="false" />
 
-				right&#160;&#160;&#160;&#160;&#160;: true
-				<div class="comment">Enables jump tabulation using right arrow.</div>
+            <label for="del-demo">del:</label>
+            <input id="del-demo" type="text" value="false" />
 
-				space&#160;&#160;&#160;&#160;&#160;: 4
-				<div class="comment">Change the number of spaces given to tabulation.</div>
-			</div>
+            <label for="left-demo">left:</label>
+            <input id="left-demo" type="text" value="false" />
 
-			<div class="session">Public functions:</div>
-			
-			<div class="source">$('#area').taby('goTo', 10);</div>
-			<div class="description-code">Goes to position 10 of the text.</div>
+            <label for="right-demo">right:</label>
+            <input id="right-demo" type="text" value="false" />
 
-			<div class="source">$('#area').taby('select', 1, 10);</div>
-			<div class="description-code">Select the texto from postion 1 to 10. If you don't pass the second parameter this will be the text length;</div>
+            <label for="space-demo">space:</label>
+            <input id="space-demo" type="text" value="2" />
 
-			<div class="source">$('#area').taby('set', { space: 2 });</div>
-			<div class="description-code">Changes the dynamic properties specified.</div>
-		</div>
+            <a id="set-action" href="javascript:void(0);" title="set">set</a>
+          </div>
 
-		<div id="footer">
-			<div id="copy">&copy; 2011 <a href="http://www.wbotelhos.com/" target="_blank">wbotelhos.com</a></div>
-		</div>
+          <h2 id="global">
+            <a href="#global">Changing the settings globally:</a>
+          </h2>
 
-		<script type="text/javascript">
-			$(function() {
+          <p>
+            You can change any option mentioning the scope <code>$.fn.taby.defaults.</code> + <i>option_name</i>. It must be called before you bind the plugin.
+          </p>
 
-				var text = 'import com.jintegrity.core.JIntegrity;\n\npublic class PopulateHelper {\n    public static void main(String[] args) {\n        new JIntegrity().cleanAndInsert();\n    }\n}\n';
+<div class="highlight">
+<pre>
+<span class="nx">$</span><span class="p">.</span><span class="nx">fn</span><span class="p">.</span><span class="nx">taby</span><span class="p">.</span><span class="nx">defaults</span><span class="p">.</span><span class="nx">space</span> <span class="o">=</span> <span class="s1">2</span><span class="p">;</span>
+<span class="nx">$</span><span class="p">.</span><span class="nx">fn</span><span class="p">.</span><span class="nx">taby</span><span class="p">.</span><span class="nx">defaults</span><span class="p">.</span><span class="nx">backspace</span> <span class="o">=</span> <span class="s1">false</span><span class="p">;</span>
+</pre>
+</div>
 
-				$('#area').val(text).taby();
+          <h2 id="options">
+            <a href="#options">Options:</a>
+          </h2>
 
-				$('#function').val(text).taby();
+          <div id="backspace" class="option">
+            <div>backspace: <span>true</span></div>
+            <p>Enables removal (end to begin) of a whole tabulation.</p>
+          </div>
 
-				$('#select-action').click(function() {
-					$('#function').taby('select', $('#from').val(), ($('#to').val() == '') ? undefined : $('#to').val());
-				});
+          <div id="del" class="option">
+            <div>del: <span>true</span></div>
+            <p>Enables removal (begin to end) of a whole tabulation.</p>
+          </div>
 
-				$('#goto-action').click(function() {
-					$('#function').taby('goTo', $('#goto').val());
-				});
+          <div id="left" class="option">
+            <div>left: <span>true</span></div>
+            <p>Enables jump tabulation using left arrow.</p>
+          </div>
 
-				$('#set-action').click(function() {
-					var opt			= {},
-						backspace	= $('#backspace').val(),
-						deleter		= $('#deleter').val(),
-						left		= $('#left').val(),
-						right		= $('#right').val(),
-						space		= $('#space').val();
+          <div id="right" class="option">
+            <div>right: <span>true</span></div>
+            <p>Enables jump tabulation using right arrow.</p>
+          </div>
 
-					if (backspace != '') {
-						opt['backspace'] = backspace;
-					}
+          <div id="space" class="option">
+            <div>space: <span>4</span></div>
+            <p>Change the number of spaces given to tabulation.</p>
+          </div>
 
-					if (deleter != '') {
-						opt['deleter'] = deleter;
-					}
+        <h2 id="tests">
+          <a href="#tests">Tests:</a>
+        </h2>
 
-					if (left != '') {
-						opt['left'] = left;
-					}
+        <p>
+          This plugin is tested to work better.
+          <a href="http://wbotelhos.com/taby/spec/run.html" target="_blank">Check it out!</a>
+        </p>
 
-					if (right != '') {
-						opt['right'] = right;
-					}
+        </article>
+      </section>
 
-					if (space != '') {
-						opt['space'] = space;
-					}
+      <div class="author">
+        <img title="Washington Botelho" src="http://www.gravatar.com/avatar/00c9b483d3c58a12c5f256cf2770d0b8?d=mm" alt="">
+        <div class="biography">
+          <p>
+            Ruby, Java and Python Developer in <a href="http://r7.com" title="R7.com" target="_blank">R7.com</a> Portal.<br />
+            Bachelor's in Information Systems and certified OCJA 1.0 and OCJP 6.<br />
+            Helper and learner of the open source community, and designer adventurer.<br />
+            Also has a passion for dance, skate, jiu-jitsu and Counter Strike Source. (:
+          </p>
+        </div>
 
-					$('#function').taby('set', opt);
-				});
+        <div class="social">
+          <a href="http://github.com/wbotelhos" title="http://github.com/wbotelhos" target="_blank" class="github"></a>
+          <a href="http://linkedin.com/in/wbotelhos" title="http://linkedin.com/in/wbotelhos" target="_blank" class="linkedin"></a>
+          <a href="http://twitter.com/wbotelhos" title="http://twitter.com/wbotelhos" target="_blank" class="twitter"></a>
+          <a href="http://facebook.com/wbotelhos" title="http://facebook.com/wbotelhos" target="_blank" class="facebook"></a>
+        </div>
+      </div>
+    </div>
 
-			});
-		</script>
-	</body>
+    <footer role="contentinfo">
+      &copy; 2012 <a href="http://wbotelhos.com" title="wbotelhos.com">wbotelhos.com</a>
+    </footer>
+  </div>
+
+  <script type="text/javascript">
+    $(function() {
+      var text = 'import com.jintegrity.core.JIntegrity;\n\npublic class PopulateHelper {\n    public static void main(String[] args) {\n        new JIntegrity().cleanAndInsert();\n    }\n}\n';
+
+      $('#default-demo').val(text).taby();
+
+      $('#function-demo').val(text).taby();
+
+      $('#select-action').on('click', function() {
+        $('#function-demo').taby('select', $('#from-demo').val(), ($('#to-demo').val() == '') ? undefined : $('#to-demo').val());
+      });
+
+      $('#goTo-action').on('click', function() {
+        $('#function-demo').taby('goTo', $('#goTo-demo').val());
+      });
+
+      $('#set-action').on('click', function() {
+        var opt       = {},
+            backspace = $('#backspace-demo').val(),
+            del       = $('#del-demo').val(),
+            left      = $('#left-demo').val(),
+            right     = $('#right-demo').val(),
+            space     = $('#space-demo').val();
+
+        if (backspace != '') {
+          opt['backspace'] = backspace;
+        }
+
+        if (del != '') {
+          opt['del'] = del;
+        }
+
+        if (left != '') {
+          opt['left'] = left;
+        }
+
+        if (right != '') {
+          opt['right'] = right;
+        }
+
+        if (space != '') {
+          opt['space'] = space;
+        }
+
+        $('#function-demo').taby('set', opt);
+      });
+    });
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-719499234-13']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-719499234-17.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+</body>
 </html>
